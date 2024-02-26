@@ -193,8 +193,15 @@ public class SignUp extends JFrame implements ActionListener{
 			if(nam.equals("")|| dob.equals("")|| gender.equals("")|| email.equals("")|| maritalstatus.equals(null)|| address.equals("")) {
 				JOptionPane.showMessageDialog(null, "Fill out all the information !!");
 			}
+				
 			
-			else {
+			
+			else if (ae.getSource()== next){
+				setVisible(false);
+				SignUp2 s= new SignUp2(formnum);
+				s.setVisible(true);
+				
+				
 				conn C = new conn();
 				
 				String query = "Insert into signup values('"+email+"','"+nam+"','"+dob+"','"+gender+"','"+maritalstatus+"','"+address+"','"+city+"','"+state+"','"+zipcode+"')";
@@ -202,7 +209,14 @@ public class SignUp extends JFrame implements ActionListener{
 			
 		}catch(Exception e) {
 			System.out.print(e);
-		}		
+		}	
+		
+	/*	if (ae.getSource()==next) {
+			setVisible(false);
+			SignUp2 s= new SignUp2();
+			s.setVisible(true);
+			
+		}*/
 				
 	}
 	
