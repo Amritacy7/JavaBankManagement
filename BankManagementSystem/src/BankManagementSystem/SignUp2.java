@@ -1,8 +1,17 @@
 package BankManagementSystem;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import java.awt.event.*;
-import javax.swing.*;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 
 
@@ -157,10 +166,10 @@ public class SignUp2 extends JFrame implements ActionListener {
 		next.addActionListener(this);
 		add(next);
 		
-	//getContentPane.setBackground(Color.white);
-	setVisible(true);
-	setSize(1000,600);
-	setLocation(1000,250);
+		getContentPane().setBackground(Color.white);
+		setVisible(true);
+		setSize(1000,600);
+		setLocation(1000,250);
 	
 	}	
 	
