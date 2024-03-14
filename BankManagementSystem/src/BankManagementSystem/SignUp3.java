@@ -161,7 +161,7 @@ public class SignUp3 extends JFrame implements ActionListener {
 				Accounttype = "Fixed Deposit";
 			}
 			Random ran = new Random();
-			String cardnum=  ""+ Math.abs(ran.nextLong()%900000000000L+9250000000000000L);
+			String cardnum=  ""+ Math.abs(ran.nextLong()%900000000000L+9250L);
 			String pinnum = ""+ Math.abs(ran.nextLong()%9000L+1000L);
 			
 			
@@ -179,10 +179,21 @@ public class SignUp3 extends JFrame implements ActionListener {
 			}else {
 				
 				conn c = new conn();
-				String query = "insert into SignUp3 values('"+Accounttype+"','"+cardnum+"', '"+pinnum+"')";
-				c.s.executeUpdate(query);
+				String query1 = "insert into SignUp3 values('"+Accounttype+"','"+cardnum+"', '"+pinnum+"')";
+				String query2 = "insert into Login values('"+cardnum+"', '"+pinnum+"')";
+
+				c.s.executeUpdate(query1);
+				c.s.executeUpdate(query2);
+				
+				
 				
 				JOptionPane.showMessageDialog(null, "Save Your Login Details "+"\n Cardnumber: "+ cardnum  +"\n Pin: " + pinnum );
+				 
+				
+				setVisible(false);
+				Login l = new Login();
+				l.setVisible(true);
+				
 			}
 		
 			} catch(Exception e ) {

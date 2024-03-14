@@ -1,5 +1,6 @@
 package BankManagementSystem;
 import java.awt.Image;
+import java.sql.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,7 +48,7 @@ public class Login extends JFrame implements ActionListener {
 		getentryBox.setFont(new Font("Arial",Font.BOLD,20));
 		add(getentryBox);
 		
-		JButton signin = new JButton("Sign In");
+		signin = new JButton("Sign In");
 		signin.setBounds(445,340,100,30);
 		signin.setBackground(Color.BLUE);
 		signin.setFont(new Font("cochin",Font.BOLD,15));
@@ -65,7 +66,7 @@ public class Login extends JFrame implements ActionListener {
 		
 		JLabel notSignedText= new JLabel("Haven't Signed Up Yet?");
 		notSignedText.setBounds(400,430,300,50);
-		notSignedText.setFont(new Font("Thonburi",Font.ROMAN_BASELINE,20));
+		notSignedText.setFont(new Font("Th onburi",Font.ROMAN_BASELINE,20));
 		notSignedText.setForeground(Color.black);
 		add(notSignedText);
 		
@@ -85,12 +86,35 @@ public class Login extends JFrame implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent ae) {
+		
+		String cardnumber = getentrybox.getText();
+		String pinnumber =  getentryBox.getText();
+		
+		
 		if (ae.getSource()==clear) {
 			getentrybox.setText("");
 			getentryBox.setText("");
 			
 		}else if(ae.getSource()==signin) {
+			conn c= new conn();
+			String query = "select * from Login where PinNumber= '"+pinnumber+"'and CardNumber='"+cardnumber+"'";
+
+			try {
+			ResultSet rs= c.s.executeQuery(query);
+			if (rs.next()) {
+				setVisible(false);
+				Transactions t= new Transactions(pinnumber);
+				t.setVisible(true);
 			
+			
+			}else {
+				
+				JOptionPane.showMessageDialog(null, "You Entered Wrong Credentials !!");
+			}
+			
+			} catch(Exception e) {
+				System.out.println(e);
+			}
 			
 		} else if (ae.getSource()==signUp) {
 			setVisible(false);
