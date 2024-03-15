@@ -1,11 +1,10 @@
 package BankManagementSystem;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.event.*;
-import javax.swing.*;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
 
 
 
@@ -118,8 +117,18 @@ public class Transactions extends JFrame implements ActionListener {
 			setVisible(false);
 			Pinchange p = new Pinchange(pinnumber);
 			p.setVisible(true);
-		}
 		
+		}else if (ae.getSource()== balanceenquiry) {
+			
+			
+			
+			setVisible(false);
+			BalanceEnquiry b = new BalanceEnquiry(pinnumber);
+			b.setVisible(true);
+			
+			
+			
+		}		
 	}
 	
 	

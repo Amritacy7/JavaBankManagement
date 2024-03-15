@@ -87,7 +87,7 @@ public class Withdraw extends JFrame implements ActionListener{
 					 
 					 balance = balance - Integer.parseInt(rs.getString("Amount"));
 				 }
-				  
+				   
 				
 			}
 			
