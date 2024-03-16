@@ -120,15 +120,16 @@ public class Transactions extends JFrame implements ActionListener {
 		
 		}else if (ae.getSource()== balanceenquiry) {
 			
-			
-			
 			setVisible(false);
 			BalanceEnquiry b = new BalanceEnquiry(pinnumber);
 			b.setVisible(true);
 			
+		} else if (ae.getSource()==ministatement) {
+			setVisible(false);
+			Ministatement m = new Ministatement(pinnumber);
+			m.setVisible(true);
 			
-			
-		}		
+		}	
 	}
 	
 	

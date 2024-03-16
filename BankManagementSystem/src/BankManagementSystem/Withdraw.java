@@ -3,6 +3,7 @@
 
 package BankManagementSystem;
 
+import java.util.Date;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -61,6 +62,9 @@ public class Withdraw extends JFrame implements ActionListener{
 	
 	
 	public void actionPerformed(ActionEvent ae) {
+		Date date = new Date();
+		
+		
 		
 		String amount = entrybox.getText();
 		
@@ -93,7 +97,7 @@ public class Withdraw extends JFrame implements ActionListener{
 			
 			if(Integer.parseInt(amount)< balance ) {
 				
-				String query2 = "insert into bank values('"+pinnumber+"', 'withdraw','"+amount+"')";
+				String query2 = "insert into bank values('"+date+"','"+pinnumber+"', 'withdraw','"+amount+"')";
 				c.s.executeUpdate(query2);
 				
 				JOptionPane.showMessageDialog(null, "You have successfully withddrawn USD "+ amount + " !");

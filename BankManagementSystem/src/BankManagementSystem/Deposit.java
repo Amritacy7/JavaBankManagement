@@ -1,5 +1,5 @@
 package BankManagementSystem;
-
+import java.util.Date;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -57,7 +57,8 @@ public class Deposit extends JFrame implements ActionListener{
 	
 	
 	public void actionPerformed(ActionEvent ae) {
-		
+		Date date = new Date();
+				
 		String amount = entrybox.getText();
 		
 		if (ae.getSource()== back) {
@@ -69,7 +70,7 @@ public class Deposit extends JFrame implements ActionListener{
 			try {
 
 			conn c = new conn();
-			String query = "insert into bank values('"+pinnumber+"', 'deposit','"+amount+"')";
+			String query = "insert into bank values('"+date+"','"+pinnumber+"', 'deposit','"+amount+"')";
 			c.s.executeUpdate(query);
 			
 			JOptionPane.showMessageDialog(null, "You have successfully depsoited USD "+ amount);

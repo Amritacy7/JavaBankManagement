@@ -1,6 +1,7 @@
 package BankManagementSystem;
 
 import java.awt.Color;
+import java.util.Date;
 import java.awt.Font;
 import java.awt.Image;
 import java.sql.*;
@@ -87,6 +88,7 @@ public class Fastcash extends JFrame implements  ActionListener{
 			
 		}else {
 			
+		Date date = new Date();			
 		String amount = ((JButton)ae.getSource()).getText().substring(0, ((JButton)ae.getSource()).getText().length()-4 );
 		try {
 		conn c = new conn();
@@ -109,7 +111,7 @@ public class Fastcash extends JFrame implements  ActionListener{
 			if (Integer.parseInt(amount)<balance) {
 				
 				JOptionPane.showMessageDialog(null,"Your Withraw is successful !");
-				String query1 = "insert into bank values('"+pinnumber+"', 'fastcash','"+amount+"')";
+				String query1 = "insert into bank values('"+date+"','"+pinnumber+"', 'fastcash','"+amount+"')";
 				c.s.executeUpdate(query1);
 				return;
 				

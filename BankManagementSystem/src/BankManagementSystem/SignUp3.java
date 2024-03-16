@@ -162,7 +162,7 @@ public class SignUp3 extends JFrame implements ActionListener {
 			}
 			Random ran = new Random();
 			String cardnum=  ""+ Math.abs(ran.nextLong()%900000000000L+9250L);
-			String pinnum = ""+ Math.abs(ran.nextLong()%9000L+1000L);
+			String pinnum = ""+ Math.abs((ran.nextLong()%9000L)+1000L);
 			
 			
 			String Agree = "";
